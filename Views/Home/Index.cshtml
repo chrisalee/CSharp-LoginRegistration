@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "User Login Page";
+}
+
+@model LoginUser
+
+    <div class="jumbotron jumbotron-fluid" >
+        <div class="container">
+            <h1 class="display-5">Login</h1>
+            <a asp-action="Registration" asp-controller="Home">New Member Registration</a>
+        </div>
+    </div>
+
+    <form class="col-12" asp-action="signin" asp-controller="Home" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            @* <div class="shadow-lg p-3 mb-5 bg-dark rounded"> *@
+                <span asp-validation-for="LoginEmail"></span>
+                @* <label asp-for="LoginEmail"></label> *@
+                <input class="form-control" placeholder="Email" asp-for="LoginEmail">
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Enter a valid Email.
+                </small>
+            @* </div> *@
+            </div>
+            <div class="form-group col-md-6">
+                <span asp-validation-for="LoginPassword"></span>
+                @* <label asp-for="LoginPassword"></label> *@
+                <input class="form-control" placeholder="Password" asp-for="LoginPassword">
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Enter a valid Password.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-outline-dark" value="Log In">
+        </div>
+    </form>

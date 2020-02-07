@@ -1,0 +1,19 @@
+@model Wedding
+
+<form class="col-5" asp-action="CreateWedding" asp-controller="Wedding" method="post">
+    <input type="hidden" asp-for="UserId" value="@ViewBag.User.UserId">
+    <div class="form-group">
+        <span class="red" asp-validation-for="WedderOne"></span>
+        <label asp-for="WedderOne"></label>
+        <input class="form-control" asp-for="WedderOne">
+    </div>
+    <div class="form-group">
+        <span class="red" asp-validation-for="WedderTwo"></span>
+        <label asp-for="WedderTwo"></label>
+        <input class="form-control" asp-for="WedderTwo">
+    </div>
+
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="create wedding">
+    </div>
+</form>

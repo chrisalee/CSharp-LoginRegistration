@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@model User
+
+<div class="jumbotron jumbotron-fluid" >
+  <div class="container">
+    <h1 class="display-3">Hello @ViewBag.User.FirstName!</h1>
+    <a asp-action="Logout" asp-controller="Home">Logout</a>
+    <p class="lead"></p>
+  </div>
+</div>
+
+@* dont have to use asp-action *@
+<a asp-action="Logout" asp-controller="Home">Logout</a>
+
+<P>  Good to go!  </P>

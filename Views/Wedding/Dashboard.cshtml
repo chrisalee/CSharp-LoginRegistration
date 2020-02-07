@@ -1,0 +1,46 @@
+<header>
+    <h1> welcome to the wedding planner @ViewBag.</h1>
+    
+</header>
+
+<table>
+    <thead>
+        <th> Name        </th>
+    </thead>
+    <tbody>
+        <tr>
+            
+                @foreach (var w in @Model)
+                {
+                    <a asp-action="ShowWedding" asp-route-WeddingId="@w.WeddingId" asp-controller="Wedding">@w.WedderOne & @w.WedderTwo</a>
+                    
+                    
+                    <td> 
+                        @if(ViewBag.User.UserId == w.Planner.UserId)
+                        {
+                            <a asp-action="DeleteWedding" asp-controller="Wedding" asp-route-weddingId="@w.WeddingId">Delete</a>
+
+                        }
+                        else
+                        {
+                            @if( w.GuestList.All( r  => r.UserId != ViewBag.User.UserId))
+                            {
+                                <a href="">RSVP</a>
+                            }
+                            @if( w.GuestList.Any( r  => r.UserId == ViewBag.User.UserId))
+                            {
+                                <a href="">Back Out</a>
+                            }
+
+                        }
+                        
+                        
+                    </td>
+                }
+            
+        </tr>
+    </tbody>
+</table>
+
+
+<a asp-action="NewWedding" asp-controller="Wedding"> New Wedding </a>
